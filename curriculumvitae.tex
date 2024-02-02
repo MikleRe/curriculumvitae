@@ -1,0 +1,17 @@
+\documentclass{article}
+
+\include{settings/settings}
+
+\begin{document}
+
+\noindent % Prevent indentation for the table
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|m{0.2\textwidth}|p{0.8\textwidth}|}
+        \include{content/skills.tex} &
+        \include{content/history.tex}
+    \end{tabular}
+\end{table}
+
+\end{document}
