@@ -15,6 +15,7 @@ jobs:
           source-files: 'curriculumvitae.pdf'
           destination-username: 'MikleRe'
           destination-repository: 'website'
+          destination-branch: 'main'
           destination-directory: 'src'
           commit-email: 'simonindan@gmail.com'
           commit-message: '[+] Updated curriculum vitae'
