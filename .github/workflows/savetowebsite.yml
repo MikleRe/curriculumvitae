@@ -3,7 +3,7 @@ name: Copy File to Another Repository
 on:
   push:
     branches:
-      - main  # Adjust to your branch name
+      - main
 
 jobs:
   copy-file:
@@ -11,16 +11,16 @@ jobs:
     
     steps:
       - name: Checkout current repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       
       - name: Copy file to destination directory
         run: |
-          cp ~Documents/curriculumvitae/curriculumvitae.pdf ~Documents/website/src/curriculumvitae.pdf
+          cp $HOME/Documents/curriculumvitae/curriculumvitae.pdf $HOME/Documents/website/src/curriculumvitae.pdf
 
       - name: Commit changes and push to destination repository
         run: |
           git config --global user.email "simonindan@gmail.com"
           git config --global user.name "Dan Simonin"
-          git add src/curriculumvitae.pdf
+          git add $HOME/Documents/website/src/curriculumvitae.pdf
           git commit -m "Copied changed curriculumvitae.pdf"
           git push https://github.com/MikleRe/website.git HEAD:main
