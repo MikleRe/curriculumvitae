@@ -1,26 +1,10 @@
-name: Copy File to Another Repository
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  copy-file:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout current repository
-        uses: actions/checkout@v2
-      
-      - name: Copy file to destination directory
-        run: |
-          cp $HOME/Documents/curriculumvitae/curriculumvitae.pdf $HOME/Documents/website/src/curriculumvitae.pdf
-
-      - name: Commit changes and push to destination repository
-        run: |
-          git config --global user.email "simonindan@gmail.com"
-          git config --global user.name "Dan Simonin"
-          git add $HOME/Documents/website/src/curriculumvitae.pdf
-          git commit -m "Copied changed curriculumvitae.pdf"
-          git push https://github.com/MikleRe/website.git HEAD:main
+- name: Push generated pdf to the website repository
+  uses: nkoppel/push-files-to-another-repository@1.1.0
+  env:
+    API_TOKEN_GITHUB: ${{ secrets.SAVE_TO_WEBSITE }}
+  with:
+    source-files: 'curriculumvitae.pdf'
+    destination-username: 'miklere'
+    destination-repository: 'miklere.github.io'
+    destination-directory: 'projects/website/src'
+    commit-email: 'simonindan@gmail.com'
