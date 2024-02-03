@@ -13,8 +13,9 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.SAVE_TO_WEBSITE }}
         with:
           source-files: 'curriculumvitae.pdf'
-          destination-username: 'Dan Simonin'
+          destination-username: 'MikleRe'
           destination-repository: 'website'
           destination-directory: 'src'
+          commit-username: 'Dan Simonin'
           commit-email: 'simonindan@gmail.com'
           commit-message: '[+] Updated curriculum vitae'
