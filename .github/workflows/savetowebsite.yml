@@ -17,3 +17,4 @@ jobs:
           destination-repository: 'website'
           destination-directory: 'src'
           commit-email: 'simonindan@gmail.com'
+          commit-message: '[+] Updated curriculum vitae'
